@@ -75,13 +75,14 @@ while (my $client_addr = accept(NEW_SOCKET, SOCKET)) {
   my $dt = DateTime->now;
   my $res_date = $dt->strftime("%a, %d %b %Y %H:%M:%S GMT");
 
-  #print responce
+  #print response header
   print NEW_SOCKET "HTTP/1.1 200 OK\n";
   print NEW_SOCKET "Date: $res_date\n";
   print NEW_SOCKET "Server: Perl 101\n";
   print NEW_SOCKET "Content-Length: $file_size\n";
   print NEW_SOCKET "Content-Type: $content_type\n";
   print NEW_SOCKET "Connection: Closed\n\n";
+  #print response body
   print NEW_SOCKET $file_data;
   
   close NEW_SOCKET;
