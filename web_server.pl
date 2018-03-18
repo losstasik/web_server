@@ -38,10 +38,10 @@ while (my $client_addr = accept(NEW_SOCKET, SOCKET)) {
 
   #check for default page
   if ($req_uri eq "/") {
-    $file_path = "public/index.html" 
+    $file_path = $www."/index.html" 
   }
   else {
-    $file_path = "public".$req_uri;
+    $file_path = $www.$req_uri;
   }
 
   #check if file not found 
@@ -53,7 +53,6 @@ while (my $client_addr = accept(NEW_SOCKET, SOCKET)) {
       close NEW_SOCKET;
       next;
   }
-
 
   #file type
   my $content_type;
